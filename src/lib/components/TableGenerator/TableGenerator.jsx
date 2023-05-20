@@ -19,7 +19,6 @@ const TableGenerator = ({ data }) => {
   const [sortedColumn, setSortedColumn] = useState();
   const [sortDirection, setSortDirection] = useState("DESC");
 
-  /** Pagination funcs */
 
   /** Pagination funcs */
   useEffect(() => {
@@ -96,9 +95,9 @@ const TableGenerator = ({ data }) => {
     setSortedColumn(key);
   };
 
+  // Output the table
   return (
     <div id="table_wrapper">
-
     <div className="table_header">
       <div id="table_length" className="dataTables_length">
         <label htmlFor="table_selectLength">
@@ -135,7 +134,7 @@ const TableGenerator = ({ data }) => {
       <table
         id="table_body"
         className="display table_body no-footer"
-        aria-describedby="employee-table_info"
+        aria-describedby="table_info"
       >
         <thead>
           <tr className="row">

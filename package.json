@@ -1,15 +1,19 @@
 {
   "name": "hrnet-tablegenerator",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": [ "dist", "README.md" ],  
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "core-js": "^3.30.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -20,7 +24,6 @@
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": [
