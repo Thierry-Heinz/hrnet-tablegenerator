@@ -13,7 +13,9 @@
 In the container or component where you want to use the tablegenerator:
 
 1. First import the component from the node_modules package folder:
+```
 import { TableGenerator } from "hrnet-tablegenerator";
+```
 
 2. Secondly, Format your data to be used by the tablegenerator component:
 - the object needs to be formatted with two properties, columns and nodes
@@ -23,23 +25,25 @@ import { TableGenerator } from "hrnet-tablegenerator";
 example: 
 ```
 const tableNodes = {
-    columns: [
-      {
-        key: "firstName",
-        label: "First Name",
-      },
-      {
-        key: "lastName",
-        label: "Last Name",
-      }],
-	  nodes: [{
-		"firstName": "Jean",
-		"lastName" : "Dupont"
-	  },
-	  {
-		"firstName": "Josie",
-		"lastName" : "Franquiche"
-	  }
+	columns: [
+	      {
+		key: "firstName",
+		label: "First Name",
+	      },
+	      {
+		key: "lastName",
+		label: "Last Name",
+	      }
+      ],
+	nodes: [
+		{
+			"firstName": "Jean",
+			"lastName" : "Dupont"
+		  },
+		  {
+			"firstName": "Josie",
+			"lastName" : "Franquiche"
+		  }
 	  ]
 };
 ```
