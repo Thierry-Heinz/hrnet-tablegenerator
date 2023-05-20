@@ -11,17 +11,17 @@
 
 ### How to use ?
 In the container or component where you want to use the tablegenerator:
+
 1. First import the component from the node_modules package folder:
 import { TableGenerator } from "hrnet-tablegenerator";
 
 2. Secondly, Format your data to be used by the tablegenerator component:
-
-
 - the object needs to be formatted with two properties, columns and nodes
 - the columns property is an array of object with two property key and label (it's used to determined the columns and the functionnality of the component)
 - the nodes property is an array of "rows" object consisting in objects, which property exactly ! match the key of the columns object !
 
 example: 
+```
 const tableNodes = {
     columns: [
       {
@@ -42,6 +42,9 @@ const tableNodes = {
 	  }
 	  ]
 };
+```
 
 3. Thirdly, the component need to be passed an object into it's data props, like so:
+```
 <TableGenerator data={tableNodes} />
+```
