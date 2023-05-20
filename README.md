@@ -1,4 +1,4 @@
-# HRNEt Table Generator
+# HRNET TableGenerator
 
 ## requirement
 1. You need node and npm installed globally on your computer
@@ -52,3 +52,5 @@ const tableNodes = {
 ```
 <TableGenerator data={tableNodes} />
 ```
+
+see the npm package: [tableGenerator](https://www.npmjs.com/package/hrnet-tablegenerator)
