@@ -150,12 +150,17 @@ const TableGenerator = _ref => {
     alt: ""
   }))))), /*#__PURE__*/_react.default.createElement("tbody", null, dataBuffer.length ? currentItems.map((node, index) => /*#__PURE__*/_react.default.createElement("tr", {
     className: "row",
-    key: index,
+    key: "".concat(node, "-").concat(index),
     id: index
-  }, Object.keys(node).map((key, i) => /*#__PURE__*/_react.default.createElement("th", {
-    key: "".concat(index, "-").concat(i),
-    id: key
-  }, node[key])))) : /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, "No matching records found")))), /*#__PURE__*/_react.default.createElement(_Pagination.default, {
+  }, columns.map(column => {
+    return Object.keys(node).map((key, i) => {
+      return column.key === key && /*#__PURE__*/_react.default.createElement("th", {
+        className: "".concat(index, "-").concat(i, "-").concat(column.key),
+        key: "".concat(index, "-").concat(i, "-").concat(column.key),
+        id: key
+      }, node[column.key]);
+    });
+  }))) : /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, "No matching records found")))), /*#__PURE__*/_react.default.createElement(_Pagination.default, {
     itemsPerPage: tableLength,
     totalFilteredItems: dataBuffer.length,
     totalItems: initialData.length,

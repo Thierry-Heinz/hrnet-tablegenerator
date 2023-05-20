@@ -163,12 +163,22 @@ const TableGenerator = ({ data }) => {
         <tbody>
           {dataBuffer.length ? (
             currentItems.map((node, index) => (
-              <tr className="row" key={index} id={index}>
-                {Object.keys(node).map((key, i) => (
-                  <th key={`${index}-${i}`} id={key}>
-                    {node[key]}
-                  </th>
-                ))}
+              <tr className="row" key={`${node}-${index}`} id={index}>
+               {columns.map((column) => {
+                  return Object.keys(node).map((key, i) => {
+                    return (
+                      column.key === key && (
+                        <th
+                          className={`${index}-${i}-${column.key}`}
+                          key={`${index}-${i}-${column.key}`}
+                          id={key}
+                        >
+                          {node[column.key]}
+                        </th>
+                      )
+                    );
+                  });
+                })}
               </tr>
             ))
           ) : (
