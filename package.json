@@ -1,9 +1,18 @@
 {
   "name": "hrnet-tablegenerator",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "keywords":[
+    "HRnet",
+    "react",
+    "table",
+    "html-table",
+    "data-table",
+    "dataTables"
+  ],
+  "description": "Use this package to generate a Rich HTML table using React, with sort, filter and pagination features",
   "files": [
     "dist",
     "README.md"
@@ -48,5 +57,9 @@
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6"
+  },
+  "engines" : {
+    "npm": ">=9.0.0",
+    "node": ">=14.0.0"
   }
 }

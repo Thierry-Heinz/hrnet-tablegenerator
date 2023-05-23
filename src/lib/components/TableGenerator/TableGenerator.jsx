@@ -72,8 +72,7 @@ const TableGenerator = ({ data }) => {
   /** Sort by columns funcs */
   const handleSortColumn = (key) => {
     const sortedCurrentItems = currentItems.sort((a, b) =>
-      // return a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0;
-      a[key].localeCompare(b[key], "en", {
+      String(a[key]).localeCompare(String(b[key]), "en", {
         numeric: "true",
         sensitivity: "base",
       })
@@ -115,23 +114,20 @@ const TableGenerator = ({ data }) => {
         </div>
 
         <div className="table_filter" id="table_filter">
-          <label htmlFor="employee_inputFilter">
+          <label htmlFor="inputFilter">
             Search:
             <input
               onChange={handleFilterInput}
               type="search"
-              id="table_filter--input"
-              aria-controls="employee-table"
+              id="inputFilter"
+              aria-controls="table_body"
+              aria-placeholder="Filter the table"
             />
           </label>
         </div>
       </div>
 
-      <table
-        id="table_body"
-        className="display table_body no-footer"
-        aria-describedby="table_info"
-      >
+      <table id="table_body" className="display table_body no-footer">
         <thead>
           <tr className="row">
             {columns.map((column, i) => (
@@ -167,7 +163,7 @@ const TableGenerator = ({ data }) => {
                         <th
                           className={`${index}-${i}-${column.key}`}
                           key={`${index}-${i}-${column.key}`}
-                          id={key}
+                          id={`${index}-${i}-${column.key}`}
                         >
                           {node[column.key]}
                         </th>
