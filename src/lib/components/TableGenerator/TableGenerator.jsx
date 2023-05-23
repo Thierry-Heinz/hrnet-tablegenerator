@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import sortAsc from "./images/sort_asc.png";
@@ -18,7 +18,6 @@ const TableGenerator = ({ data }) => {
   const [filtered, setFiltered] = useState(false);
   const [sortedColumn, setSortedColumn] = useState();
   const [sortDirection, setSortDirection] = useState("DESC");
-
 
   /** Pagination funcs */
   useEffect(() => {
@@ -49,12 +48,10 @@ const TableGenerator = ({ data }) => {
   /** Filtering table func */
   const filterTable = (objectsArray, value) => {
     return objectsArray.filter((node) => {
-      for (const key in node) {
-        if (node[key].toLowerCase().includes(value.toLowerCase())) {
-          return node;
-        }
-      }
-      return false;
+      const result = Object.keys(node).some((key) =>
+        String(node[key]).toLowerCase().includes(String(value).toLowerCase())
+      );
+      return result;
     });
   };
 
@@ -98,38 +95,37 @@ const TableGenerator = ({ data }) => {
   // Output the table
   return (
     <div id="table_wrapper">
-    <div className="table_header">
-      <div id="table_length" className="dataTables_length">
-        <label htmlFor="table_selectLength">
-          Show
-          <select
-            onChange={handleSelectLength}
-            name="table_length"
-            id="table_selectLength"
-            value={tableLength}
+      <div className="table_header">
+        <div id="table_length" className="dataTables_length">
+          <label htmlFor="table_selectLength">
+            Show
+            <select
+              onChange={handleSelectLength}
+              name="table_length"
+              id="table_selectLength"
+              value={tableLength}
             >
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
-          entries
-        </label>
-      </div>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            entries
+          </label>
+        </div>
 
-      <div className="table_filter" id="table_filter">
-        <label htmlFor="employee_inputFilter">
-          Search:
-          <input
-            onChange={handleFilterInput}
-            type="search"
-            id="table_filter--input"
-            aria-controls="employee-table"
+        <div className="table_filter" id="table_filter">
+          <label htmlFor="employee_inputFilter">
+            Search:
+            <input
+              onChange={handleFilterInput}
+              type="search"
+              id="table_filter--input"
+              aria-controls="employee-table"
             />
-        </label>
+          </label>
+        </div>
       </div>
-    </div>
-
 
       <table
         id="table_body"
@@ -164,7 +160,7 @@ const TableGenerator = ({ data }) => {
           {dataBuffer.length ? (
             currentItems.map((node, index) => (
               <tr className="row" key={`${node}-${index}`} id={index}>
-               {columns.map((column) => {
+                {columns.map((column) => {
                   return Object.keys(node).map((key, i) => {
                     return (
                       column.key === key && (
