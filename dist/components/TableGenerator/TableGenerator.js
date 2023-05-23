@@ -59,12 +59,8 @@ const TableGenerator = _ref => {
   /** Filtering table func */
   const filterTable = (objectsArray, value) => {
     return objectsArray.filter(node => {
-      for (const key in node) {
-        if (node[key].toLowerCase().includes(value.toLowerCase())) {
-          return node;
-        }
-      }
-      return false;
+      const result = Object.keys(node).some(key => String(node[key]).toLowerCase().includes(String(value).toLowerCase()));
+      return result;
     });
   };
   const handleFilterInput = e => {
